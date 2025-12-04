@@ -87,6 +87,10 @@ func logHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	// Initialise AWS & Kinesis client
+	initAWS()
+
+	// Set up HTTP route
 	http.HandleFunc("/logs", logHandler)
 
 	log.Println("Starting log API on :8080")
